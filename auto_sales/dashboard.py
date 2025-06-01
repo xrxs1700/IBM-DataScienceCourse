@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 import dash
 from dash import dcc
 from dash import html
@@ -19,7 +13,7 @@ data = pd.read_csv('https://cf-courses-data.s3.us.cloud-object-storage.appdomain
 app = dash.Dash(__name__)
 
 # Set the title of the dashboard
-#app.title = "Automobile Statistics Dashboard"
+app.title = "Automobile Statistics Dashboard"
 
 #---------------------------------------------------------------------------------
 # Create the dropdown menu options
@@ -69,7 +63,6 @@ def update_input_container(selected_statistics):
         return True
 
 #Callback for plotting
-# Define the callback function to update the input container based on the selected statistics
 @app.callback(
     Output(component_id='output-container', component_property='children'),
     [Input(component_id='dropdown-statistics', component_property='value'), 
@@ -183,5 +176,4 @@ def update_output_container(selected_statistics, input_year):
 
 # Run the Dash app
 if __name__ == '__main__':
-    app.run_server(debug=True)
-
+    app.run(debug=True)
